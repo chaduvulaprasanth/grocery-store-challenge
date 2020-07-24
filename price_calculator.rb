@@ -18,7 +18,6 @@ class Price_calculator
     }
     @order = Hash.new(0)
     @total = 0
-    @save = 0
   end
 
   def calculate(items)
@@ -35,14 +34,13 @@ class Price_calculator
           # amount you saved
           @save += (((@pricing_table[item]["sale"]["qun"]) * @pricing_table[item]["price"]) - (@pricing_table[item]["sale"]["cost"]))
 
+
         else
            # calculating total price if ordered item is not in pricing_table
               @total += (@pricing_table[item]["price"] * ordered_quanity)
         end
     end
     puts "Total price : $#{@total.round(2)}"
-    puts "You saved $#{@save.round(2)} today."
-  end
   end
 end
 
