@@ -17,10 +17,26 @@ class Price_calculator
       }
     }
     @order = Hash.new(0)
+    @total = 0
   end
 
   def calculate(items)
     items.each{ |item| @order[item.downcase] += 1 if @pricing_table[item.downcase]}
+
+    @order.each do |item, ordered_quanity|
+
+      # if ordered item is in sale and ordered quantity matched sale item quanity
+        if @pricing_table[item]["sale"] && ordered_quanity >= @pricing_table[item]["sale"]["qun"] 
+  
+          # calculating total price
+          @total += ((@pricing_table[item]["sale"]["cost"]) + (@pricing_table[item]["price"] * (ordered_quanity - @pricing_table[item]["sale"]["qun"]))) 
+        else
+           # calculating total price if ordered item is not in pricing_table
+              @total += (@pricing_table[item]["price"] * ordered_quanity)
+        end
+    end
+    puts "Total price : $#{@total.round(2)}"
+  end
   end
 end
 
