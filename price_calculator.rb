@@ -30,14 +30,14 @@ class Price_calculator
         if @pricing_table[item]["sale"] && ordered_quanity >= @pricing_table[item]["sale"]["qun"] 
   
           # calculating total price
-          @total += ((@pricing_table[item]["sale"]["cost"]) + (@pricing_table[item]["price"] * (ordered_quanity - @pricing_table[item]["sale"]["qun"]))) 
+          @total += ((@pricing_table[item]["sale"]["cost"]) + ((@pricing_table[item]["price"]) * (ordered_quanity - (@pricing_table[item]["sale"]["qun"])))) 
 
           # amount you saved 
-          @save += (((@pricing_table[item]["sale"]["qun"]) * @pricing_table[item]["price"]) - (@pricing_table[item]["sale"]["cost"]))
+          @save += (((@pricing_table[item]["sale"]["qun"]) * (@pricing_table[item]["price"])) - (@pricing_table[item]["sale"]["cost"]))
   
         else
            # calculating total price if ordered item is not in pricing_table
-              @total += (@pricing_table[item]["price"] * ordered_quanity)
+              @total += ((@pricing_table[item]["price"]) * ordered_quanity)
         end
     end
     puts "Total price : $#{@total.round(2)}"
