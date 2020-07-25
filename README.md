@@ -1,15 +1,19 @@
 # grocery-store-challenge
 
-##### To test run below command in terminal
 
-ruby price_calculator.rb
+follow below instructions to test the applica
 
-##### Please enter all the items purchased separated by a comma
+$ ruby price_calculator.rb
 
-milk,milk,bread,banana,bread,bread,bread,milk,apple
+Please enter all the items purchased separated by a comma
+milk,milk, bread,banana,bread,bread,bread,milk,apple
 
-##### Output
+Item     Quantity      Price
+--------------------------------------
+Milk      3            $8.97
+Bread     4            $8.17
+Apple     1            $0.89
+Banana    1            $0.99  
 
-###### Total price : \$19.02
-
-###### You saved \$3.45 today.
+Total price : $19.02
+You saved $3.45 today.
