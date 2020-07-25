@@ -1,7 +1,7 @@
 # grocery-store-challenge
 
 
-follow below instructions to test the applica
+follow below instructions to test the application 
 
 ``` 
 $ ruby price_calculator.rb
